@@ -1,0 +1,30 @@
+{% set fonts = [
+  {
+    "abbr": "m",
+    "descr": "Merriweather project is led by Sorkin Type"
+  },
+  {
+    "abbr": "r",
+    "descr": "Roboto doesn't compromise, allowing letters"
+  },
+  {
+    "abbr": "ns",
+    "descr": "Note Sans covers over 30 scripts"
+  }
+] %}
+
+<div class="tab tab_my_fonts">
+  {% for font in fonts %}
+  <div class="font {{font.abbr}}">
+    <div class="font__icon">
+      <div class="font__abbr">
+        {{ font.abbr }}
+      </div>
+    </div>
+
+    <div class="font__descr">
+      {{ font.descr }}
+    </div>
+  </div>
+  {% endfor %}
+</div>

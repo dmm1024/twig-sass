@@ -5,8 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
-  
+  <ul class="wrapper">
+    <header class="top">
+      <h2 class="top__title">
+        Please select one font
+      </h2>
+
+      <ul class="top__btns">
+        <li class="top__btn">
+          my fonts
+        </li>
+        <li class="top__btn top__btn--active">
+          buy fonts
+        </li>
+      </ul>
+    </header>
+
+    <div class="block">
+        {% include 'tabs/tab_my_fonts.html' %}
+        {% include 'tabs/tab_buy_fonts.html' %}
+    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
 </body>
 </html>
