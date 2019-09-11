@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+  <ul class="wrapper">
+    <header class="top">
+      <h2 class="top__title">
+        Please select one font
+      </h2>
+
+      <ul class="top__btns">
+        <li class="top__btn">
+          my fonts
+        </li>
+        <li class="top__btn top__btn--active">
+          buy fonts
+        </li>
+      </ul>
+    </header>
+
+    <div class="block">
+        <div class="tab tab_my_fonts hidden">
+  You have not bought a font yet!
+</div>        
+<div class="tab tab_my_fonts">
+    <div class="font m">
+    <input type="radio" name="font" class="tab__radio" id="m">
+
+    <label for="m" class="font__label">
+      <div class="font__icon">
+        <div class="font__abbr">
+          m
+        </div>
+      </div>
+  
+      <div class="font__descr">
+        Merriweather project is led by Sorkin Type
+      </div>
+    </label>
+  </div>
+    <div class="font r">
+    <input type="radio" name="font" class="tab__radio" id="r">
+
+    <label for="r" class="font__label">
+      <div class="font__icon">
+        <div class="font__abbr">
+          r
+        </div>
+      </div>
+  
+      <div class="font__descr">
+        Roboto doesn't compromise, allowing letters
+      </div>
+    </label>
+  </div>
+    <div class="font ns">
+    <input type="radio" name="font" class="tab__radio" id="ns">
+
+    <label for="ns" class="font__label">
+      <div class="font__icon">
+        <div class="font__abbr">
+          ns
+        </div>
+      </div>
+  
+      <div class="font__descr">
+        Note Sans covers over 30 scripts
+      </div>
+    </label>
+  </div>
+  </div>    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,3 +1,6 @@
+$md: 800px;
+$sm: 500px;
+
 * {
   box-sizing: border-box;
 }
@@ -18,11 +21,24 @@ body {
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 2rem;
+
+  @media (max-width: $md) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .top__title {
   margin: 0;
   font-size: 2rem;
+
+  @media (max-width: $md) {
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: $sm) {
+    font-size: 1.3rem;
+  }
 }
 
 .top__btns {
@@ -38,6 +54,7 @@ body {
   padding: 0 10px;
   text-transform: uppercase;
   color: #bdbdbd;
+  cursor: pointer;
 
   &--active {
     color: #ff7043;
@@ -48,6 +65,10 @@ body {
   border: 3px solid #b0bec5;
   padding: 70px;
   border-radius: 10px;
+
+  @media (max-width: $md) {
+    padding: 30px;
+  }
 
   &.hidden {
     display: none;
@@ -62,6 +83,31 @@ body {
   grid-template-areas:
     "m r"
     "m ns";
+
+  @media (max-width: $md) {
+    display: block;
+  }
+}
+
+.tab__radio {
+  display: none;
+
+  &:checked + .font__label {
+    opacity: .5;
+  }
+}
+
+.font {
+  cursor: pointer;
+
+  @media (max-width: $md) {
+    margin-bottom: 1rem;
+  }
+}
+
+.font__label {
+  transition: 0.3s;
+  display: block;
 }
 
 .font__icon {
@@ -91,6 +137,14 @@ body {
   position: relative;
   font-size: 1.8rem;
 
+  @media (max-width: $md) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: $sm) {
+    padding-left: 0;
+  }
+
   &:before {
     content: "";
     width: 10px;
@@ -100,6 +154,10 @@ body {
     position: absolute;
     left: 10px;
     top: 30px;
+
+    @media (max-width: $sm) {
+      display: none;
+    }
   }
 }
 
@@ -107,10 +165,29 @@ body {
   grid-area: m;
   max-width: 300px;
 
+  @media (max-width: $md) {
+    max-width: none;
+  }
+
+  .font__label {
+    @media (max-width: $md) {
+      display: flex;
+    }
+
+    @media (max-width: $sm) {
+      display: block;
+    }
+  }
+
   .font__icon {
     background: #4caf50;
     width: 200px;
     height: 200px;
+
+    @media (max-width: $md) {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   .font__abbr {
@@ -119,8 +196,14 @@ body {
 }
 
 .r {
-  grid-area: r;
-  display: flex;
+  .font__label {
+    grid-area: r;
+    display: flex;
+
+    @media (max-width: $sm) {
+      display: block;
+    }
+  }
 
   .font__icon {
     background: #f06292;
@@ -128,8 +211,14 @@ body {
 }
 
 .ns {
-  grid-area: ns;
-  display: flex;
+  .font__label {
+    grid-area: ns;
+    display: flex;
+
+    @media (max-width: $sm) {
+      display: block;
+    }
+  }
 
   .font__icon {
     background: #3f51b5;

@@ -1,42 +1,46 @@
-const { src, dest, watch, series } = require('gulp');
+const { task, src, dest, watch, series, parallel } = require('gulp');
 const twig = require('gulp-twig');
 const bs = require('browser-sync').create();
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 
-function deployTwig() {
+task('htmlTask', () => {
   return src('./src/twig_template.html')
     .pipe(twig())
     .pipe(rename('index.html'))
-    .pipe(dest('./dest'));
-};
+    .pipe(dest('./dest'))
+    .pipe(bs.stream());
+});
 
-function styles() {
+task('cssTask', () => {
   return src('./src/styles/main.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(dest('./dest/styles'));
-}
+    .pipe(dest('./dest/styles'))
+    .pipe(bs.stream());
+});
 
-function js() {
+task('jsTask', () => {
   return src('./src/**/*.js')
-    .pipe()
     .pipe(dest('./dest'))
-}
+    .pipe(bs.stream());
+});
 
-function serve() {
+task('serve', () => {
   bs.init({
     server: {
       baseDir: './dest'
     }
   })
+});
 
-  watch('./src/**/*.html', deployTwig).on('change', bs.reload);
-  watch('./src/**/*.scss', styles).on('change', bs.reload);
-  watch('./src/**/*.js', js).on('change', bs.reload);
-}
+task('watch', cb => {
+  watch('./src/**/*.html', series('htmlTask')).on('change', bs.reload);
+  watch('./src/**/*.scss', series('cssTask')).on('change', bs.reload);
+  watch('./src/**/*.js', series('jsTask')).on('change', bs.reload);
 
+  cb();
+});
 
+task('build', parallel('htmlTask', 'cssTask', 'jsTask'));
 
-exports.default = () => {
-  series(deployTwig, styles, js);
-};
+task('default', series('build', 'watch', 'serve'));

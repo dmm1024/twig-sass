@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600; }
+
+.wrapper {
+  max-width: 1200px;
+  margin-top: 50px;
+  padding: 0 20px; }
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem; }
+  @media (max-width: 800px) {
+    .top {
+      flex-direction: column;
+      align-items: flex-start; } }
+
+.top__title {
+  margin: 0;
+  font-size: 2rem; }
+  @media (max-width: 800px) {
+    .top__title {
+      margin-bottom: 1rem; } }
+  @media (max-width: 500px) {
+    .top__title {
+      font-size: 1.3rem; } }
+
+.top__btns {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.top__btn {
+  padding: 0 10px;
+  text-transform: uppercase;
+  color: #bdbdbd;
+  cursor: pointer; }
+  .top__btn--active {
+    color: #ff7043; }
+
+.tab {
+  border: 3px solid #b0bec5;
+  padding: 70px;
+  border-radius: 10px; }
+  @media (max-width: 800px) {
+    .tab {
+      padding: 30px; } }
+  .tab.hidden {
+    display: none; }
+
+.tab_my_fonts {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
+  grid-template-areas: "m r" "m ns"; }
+  @media (max-width: 800px) {
+    .tab_my_fonts {
+      display: block; } }
+
+.tab__radio {
+  display: none; }
+  .tab__radio:checked + .font__label {
+    opacity: .5; }
+
+.font {
+  cursor: pointer; }
+  @media (max-width: 800px) {
+    .font {
+      margin-bottom: 1rem; } }
+
+.font__label {
+  transition: 0.3s;
+  display: block; }
+
+.font__icon {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #000;
+  padding: 10px;
+  position: relative;
+  box-shadow: inset  0 0 0 5px #fff;
+  border-radius: 10%;
+  flex-shrink: 0; }
+
+.font__abbr {
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  font-size: 3rem;
+  line-height: .8;
+  font-weight: 800; }
+
+.font__descr {
+  padding: 20px 0 0 30px;
+  position: relative;
+  font-size: 1.8rem; }
+  @media (max-width: 800px) {
+    .font__descr {
+      font-size: 1.4rem; } }
+  @media (max-width: 500px) {
+    .font__descr {
+      padding-left: 0; } }
+  .font__descr:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: grey;
+    position: absolute;
+    left: 10px;
+    top: 30px; }
+    @media (max-width: 500px) {
+      .font__descr:before {
+        display: none; } }
+
+.m {
+  grid-area: m;
+  max-width: 300px; }
+  @media (max-width: 800px) {
+    .m {
+      max-width: none; } }
+  @media (max-width: 800px) {
+    .m .font__label {
+      display: flex; } }
+  @media (max-width: 500px) {
+    .m .font__label {
+      display: block; } }
+  .m .font__icon {
+    background: #4caf50;
+    width: 200px;
+    height: 200px; }
+    @media (max-width: 800px) {
+      .m .font__icon {
+        width: 150px;
+        height: 150px; } }
+  .m .font__abbr {
+    font-size: 4rem; }
+
+.r .font__label {
+  grid-area: r;
+  display: flex; }
+  @media (max-width: 500px) {
+    .r .font__label {
+      display: block; } }
+
+.r .font__icon {
+  background: #f06292; }
+
+.ns .font__label {
+  grid-area: ns;
+  display: flex; }
+  @media (max-width: 500px) {
+    .ns .font__label {
+      display: block; } }
+
+.ns .font__icon {
+  background: #3f51b5; }

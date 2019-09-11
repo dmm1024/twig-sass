@@ -16,15 +16,19 @@
 <div class="tab tab_my_fonts">
   {% for font in fonts %}
   <div class="font {{font.abbr}}">
-    <div class="font__icon">
-      <div class="font__abbr">
-        {{ font.abbr }}
-      </div>
-    </div>
+    <input type="radio" name="font" class="tab__radio" id="{{font.abbr}}">
 
-    <div class="font__descr">
-      {{ font.descr }}
-    </div>
+    <label for="{{font.abbr}}" class="font__label">
+      <div class="font__icon">
+        <div class="font__abbr">
+          {{ font.abbr }}
+        </div>
+      </div>
+  
+      <div class="font__descr">
+        {{ font.descr }}
+      </div>
+    </label>
   </div>
   {% endfor %}
 </div>
